@@ -20,8 +20,8 @@ void inputArray(int *array){
     }
 }
 
-void printArray(int *array){
-    for (int i = 0; i < SIZE; i++)
+void printArray(int *array, int size){
+    for (int i = 0; i < size; i++)
     {
         printf("%d ", array[i]);
     }
@@ -48,25 +48,21 @@ void zero_tens(int *array, int *newArray){
         if ((array[i] % 100) / 10 == 0)
         {
             newArray[count] = array[i];
-            // printf("newarray = %d \n", newArray[count]);
             count++;
         }
     }
-    for(int i = 0; i < count; i++){
-        printf("%d ", newArray[i]);
-    }
-    printf("\n");
 }
 
 int main(int argc, char const *argv[])
 {
-    // int array[SIZE];
-    // inputArray(array);
-    int array[10] = {40, 105, 203, 1, 14, 1000, 22, 33, 44, 55};
-    printArray(array);
-    // printf("sizenew = %d\n", sizeNewArray(array));
-    int newArray[sizeNewArray(array)];
+
+    int array[SIZE] = {40, 105, 203, 1, 14, 1000, 22, 33, 44, 55};
+    printf("Array 1 = ");
+    printArray(array, SIZE);
+    int sizeNew = sizeNewArray(array); 
+    int newArray[sizeNew];
     zero_tens(array, newArray);
-    // printArray(newArray); // не смог разораться, почему выводит массив из 10 элементов
+    printf("New array = ");
+    printArray(newArray, sizeNew); 
     return 0;
 }
